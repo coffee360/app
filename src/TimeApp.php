@@ -25,10 +25,11 @@ class TimeApp
         $year      = date('Y', strtotime($date));
         $week_rank = date('W', strtotime($date));
         $week_day  = date('w', strtotime($date));
-        $week_from = date('Y-m-d', strtotime('-' . $week_day));
+        $week_from = date('Y-m-d', strtotime('-' . $week_day . ' day'));
         $week_to   = date('Y-m-d', strtotime("+7 day", strtotime($week_from)));
 
         return [
+            "today"     => $date,
             "year"      => $year,
             "week_rank" => $week_rank,
             "week_day"  => $week_day,
