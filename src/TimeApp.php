@@ -25,16 +25,20 @@ class TimeApp
         $year      = date('Y', strtotime($date));
         $week_rank = date('W', strtotime($date));
         $week_day  = date('w', strtotime($date));
-        $week_from = date('Y-m-d', strtotime('-' . ($week_day - 1) . ' day'));
-        $week_to   = date('Y-m-d', strtotime("+7 day", strtotime($week_from)));
+        $date_from = date('Y-m-d', strtotime('-' . ($week_day - 1) . ' day'));
+        $date_to   = date('Y-m-d', strtotime("+6 day", strtotime($date_from)));
+        $time_from = strtotime($date_from . ' 00:00:00');
+        $time_to   = strtotime($date_to . ' 23:59:59');
 
         return [
             "today"     => $date,
             "year"      => $year,
             "week_rank" => $week_rank,
             "week_day"  => $week_day,
-            "week_from" => $week_from,
-            "week_to"   => $week_to,
+            "date_from" => $date_from,
+            "date_to"   => $date_to,
+            "time_from" => $time_from,
+            "time_to"   => $time_to,
         ];
     }
 }
