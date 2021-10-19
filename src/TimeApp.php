@@ -22,23 +22,23 @@ class TimeApp
             $date = date('Y-m-d');
         }
 
-        $year      = date('Y', strtotime($date));
-        $week_rank = date('W', strtotime($date));
-        $week_day  = date('w', strtotime($date));
-        $date_from = date('Y-m-d', strtotime('-' . ($week_day - 1) . ' day'));
-        $date_to   = date('Y-m-d', strtotime("+6 day", strtotime($date_from)));
-        $time_from = strtotime($date_from . ' 00:00:00');
-        $time_to   = strtotime($date_to . ' 23:59:59');
+        $year           = date('Y', strtotime($date));
+        $week_rank      = date('W', strtotime($date));
+        $week_day       = date('w', strtotime($date));
+        $week_date_from = date('Y-m-d', strtotime('-' . ($week_day - 1) . ' day'));
+        $week_date_to   = date('Y-m-d', strtotime("+6 day", strtotime($week_date_from)));
+        $week_time_from = strtotime($week_date_from . ' 00:00:00');
+        $week_time_to   = strtotime($week_date_to . ' 23:59:59');
 
         return [
-            "today"     => $date,
-            "year"      => $year,
-            "week_rank" => $week_rank,
-            "week_day"  => $week_day,
-            "date_from" => $date_from,
-            "date_to"   => $date_to,
-            "time_from" => $time_from,
-            "time_to"   => $time_to,
+            "date"           => $date,
+            "year"           => $year,
+            "week_rank"      => $week_rank,
+            "week_day"       => $week_day,
+            "week_date_from" => $week_date_from,
+            "week_date_to"   => $week_date_to,
+            "week_time_from" => $week_time_from,
+            "week_time_to"   => $week_time_to,
         ];
     }
 }
