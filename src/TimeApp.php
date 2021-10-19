@@ -26,7 +26,7 @@ class TimeApp
         $week_rank = date('W', strtotime($date));
         $week_day  = date('w', strtotime($date));
         $week_from = date('Y-m-d', strtotime('-' . $week_day));
-        $week_to   = date('Y-m-d', strtotime("+7 day", $week_from));
+        $week_to   = date('Y-m-d', strtotime("+7 day", strtotime($week_from)));
 
         return [
             "year"      => $year,
