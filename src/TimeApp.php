@@ -34,6 +34,7 @@ class TimeApp
         return [
             "date"           => $date,
             "year"           => $year,
+            "month"          => $month,
             "week_rank"      => $week_rank,
             "week_day"       => $week_day,
             "week_date_from" => $week_date_from,
