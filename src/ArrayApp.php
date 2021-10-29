@@ -10,6 +10,14 @@ namespace Phpfunction\App;
 class ArrayApp
 {
 
+    /**
+     * 下级所有tree结构
+     * @param        $data          数组
+     * @param string $son_key       下标
+     * @param string $parent_id_key 上级id字段
+     * @param string $own_id        当前id字段
+     * @return array
+     */
     public function getChild($data, $son_key = "child", $parent_id_key = "parent_id", $own_id = "id")
     {
         $items = [];
