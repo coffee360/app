@@ -51,4 +51,34 @@ class StringApp
     }
 
 
+    /**
+     * 生成永远唯一的密钥码
+     * sha512(返回128位) sha384(返回96位) sha256(返回64位) md5(返回32位)
+     * 还有很多Hash函数......
+     * @param int    $type 返回格式：0大小写混合  1全大写  2全小写
+     * @param string $func 启用算法：
+     * @return string
+     * @author xiaochaun
+     */
+    function getUnique($type = 0, $func = 'md5')
+    {
+        $uid  = md5(uniqid(rand(), true) . microtime());
+        $hash = hash($func, $uid);
+        $arr  = str_split($hash);
+        foreach ($arr as $v) {
+            if ($type == 0) {
+                $newArr[] = empty(rand(0, 1)) ? strtoupper($v) : $v;
+            }
+            if ($type == 1) {
+                $newArr[] = strtoupper($v);
+            }
+            if ($type == 2) {
+                $newArr[] = $v;
+            }
+        }
+
+        return implode('', $newArr);
+    }
+
+
 }
