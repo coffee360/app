@@ -11,6 +11,29 @@ class StringApp
 {
 
     /**
+     * 输出
+     * @param        $msg
+     * @param string $note
+     */
+    public function showLog($msg, $note = '')
+    {
+        if (is_object($msg)) {
+            $msg = $msg->toArray();
+        }
+
+        if (!empty($note)) {
+            echo PHP_EOL;
+            print_r($note);
+            echo PHP_EOL;
+        } else {
+            echo PHP_EOL;
+        }
+        print_r($msg);
+        echo PHP_EOL;
+    }
+
+
+    /**
      * 移除表情符号
      * @param $text
      * @return string
