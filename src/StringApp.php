@@ -11,6 +11,21 @@ class StringApp
 {
 
     /**
+     * 全是中文
+     * @param $str
+     * @return int
+     */
+    public function isAllZhongWen($str)
+    {
+        if (preg_match('/^[\x7f-\xff]+$/', $str)) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+
+    /**
      * 输出
      * @param        $msg
      * @param string $note
