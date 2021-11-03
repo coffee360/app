@@ -24,6 +24,7 @@ class TimeApp
 
         $year           = date('Y', strtotime($date));
         $month          = date('m', strtotime($date));
+        $month_date_max = date('t', strtotime($date));
         $week_rank      = date('W', strtotime($date));
         $week_day       = date('N', strtotime($date));
         $week_date_from = date('Y-m-d', strtotime('-' . ($week_day - 1) . ' day', strtotime($date)));
@@ -35,6 +36,7 @@ class TimeApp
             "date"           => $date,
             "year"           => $year,
             "month"          => $month,
+            "month_date_max" => $month_date_max,
             "week_rank"      => $week_rank,
             "week_day"       => $week_day,
             "week_date_from" => $week_date_from,
