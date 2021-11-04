@@ -13,7 +13,7 @@ class DirectoryApp
     /**
      * 删除当DIR路径下N天前创建的所有文件
      */
-    public function delFileInDir($dir, $n)
+    public function delFileInDir($dir, $n = 7)
     {
         if (is_dir($dir)) {
             if ($dh = opendir($dir)) {
