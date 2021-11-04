@@ -16,7 +16,7 @@ class NumberApp
      * @param bool $chu_100_is
      * @return string
      */
-    function num2point($num, $chu_100_is = false)
+    public function num2point($num, $chu_100_is = false)
     {
         if ($chu_100_is) {
             $num = $num / 100;

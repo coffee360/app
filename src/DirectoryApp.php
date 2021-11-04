@@ -11,11 +11,38 @@ class DirectoryApp
 {
 
     /**
-     * 删除文件夹
+     * 删除当DIR路径下N天前创建的所有文件
+     */
+    public function delFileInDir($dir, $n)
+    {
+        if (is_dir($dir)) {
+            if ($dh = opendir($dir)) {
+                while (false !== ($file = readdir($dh))) {
+                    if ($file != "." && $file != "..") {
+                        $fullpath = $dir . "/" . $file;
+                        if (!is_dir($fullpath)) {
+                            $filedate = date("Y-m-d", filemtime($fullpath));
+                            $d1       = strtotime(date("Y-m-d"));
+                            $d2       = strtotime($filedate);
+                            $Days     = round(($d1 - $d2) / 3600 / 24);
+                            if ($Days > $n) {
+                                unlink($fullpath);  ////删除文件
+                            }
+                        }
+                    }
+                }
+                closedir($dh);
+            }
+        }
+    }
+
+
+    /**
+     * 删除文件夹及下面的所有文件
      * @param $path
      * @return bool
      */
-    function del($path)
+    public function delDir($path)
     {
         //如果是目录则继续
         if (is_dir($path)) {
@@ -29,7 +56,7 @@ class DirectoryApp
                         //如果是目录则递归子目录，继续操作
                         if (is_dir($path . $val)) {
                             //子目录中操作删除文件夹和文件
-                            deldir($path . $val . '/');
+                            delDir($path . $val . '/');
                         } else {
                             //如果是文件直接删除
                             unlink($path . $val);
@@ -42,8 +69,6 @@ class DirectoryApp
         //删除目录
         return rmdir($path);
     }
-
-
 }
 
 

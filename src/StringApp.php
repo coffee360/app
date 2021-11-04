@@ -98,7 +98,7 @@ class StringApp
      * @return string
      * @author xiaochaun
      */
-    function getUnique($type = 0, $func = 'md5')
+    public function getUnique($type = 0, $func = 'md5')
     {
         $uid  = md5(uniqid(rand(), true) . microtime());
         $hash = hash($func, $uid);
