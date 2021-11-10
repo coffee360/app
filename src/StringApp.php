@@ -11,6 +11,16 @@ class StringApp
 {
 
     /**
+     * 订单号
+     * @return string
+     */
+    public function getOrderNo()
+    {
+        return date('YmdHms') . rand(1000, 9999);
+    }
+
+
+    /**
      * 全是中文
      * @param $str
      * @return int
