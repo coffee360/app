@@ -16,7 +16,7 @@ class StringApp
      */
     public function getOrderNo()
     {
-        return date('YmdHms') . rand(1000, 9999);
+        return date('ymdHms') . rand(100, 999);
     }
 
 
