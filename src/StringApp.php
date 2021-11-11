@@ -65,7 +65,7 @@ class StringApp
      */
     public function removeEmoji($text)
     {
-        if (empty($text)) {
+        if ($text === '') {
             return '';
         }
 
