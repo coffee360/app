@@ -26,6 +26,7 @@ class TimeApp
         $time_to       = strtotime($time_to_ext);
 
         return [
+            'date'          => date('Y-m-d', $time),
             'year'          => date('Y', $time),
             'month'         => date('m', $time),
             'day'           => date('d', $time),
@@ -56,6 +57,7 @@ class TimeApp
         $time_to       = strtotime($time_to_ext);
 
         return [
+            'date'          => date('Y-m-d', $time),
             'year'          => date('Y', $time),
             'week_no'       => date('W', $time),
             'week_day'      => date('N', $time),
@@ -87,6 +89,7 @@ class TimeApp
         $time_to       = strtotime($time_to_ext);
 
         return [
+            'date'          => date('Y-m-d', $time),
             'year'          => date('Y', $time),
             'month'         => date('m', $time),
             'time_from_ext' => $time_from_ext,
