@@ -17,7 +17,12 @@ class TimeApp
     {
         if (empty($time)) {
             $time = time();
+        } else {
+            if (!is_numeric($time)) {
+                $time = strtotime($time);
+            }
         }
+
         $date = date('Y-m-d', $time);
 
         $time_from_ext = $date . ' 00:00:00';
@@ -47,6 +52,10 @@ class TimeApp
     {
         if (empty($time)) {
             $time = time();
+        } else {
+            if (!is_numeric($time)) {
+                $time = strtotime($time);
+            }
         }
 
         $week_day  = date('N', $time);
@@ -80,7 +89,12 @@ class TimeApp
     {
         if (empty($time)) {
             $time = time();
+        } else {
+            if (!is_numeric($time)) {
+                $time = strtotime($time);
+            }
         }
+
         $year          = date('Y', $time);
         $month         = date('m', $time);
         $month_day_max = date('t', $time);
@@ -113,7 +127,12 @@ class TimeApp
     {
         if (empty($time)) {
             $time = time();
+        } else {
+            if (!is_numeric($time)) {
+                $time = strtotime($time);
+            }
         }
+
         $date_from = date('Y', $time) . '-01-01';
         $date_to   = date('Y', $time) . '-12-31';
 
