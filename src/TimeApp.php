@@ -70,7 +70,7 @@ class TimeApp
         return [
             'date'          => date('Y-m-d', $time),
             'year'          => date('Y', $time),
-            'week_no'       => date('W', $time),
+            'week'          => date('W', $time),
             'week_day'      => date('N', $time),
             'date_from'     => $date_from,
             'date_to'       => $date_to,
